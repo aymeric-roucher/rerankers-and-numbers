@@ -10,8 +10,9 @@ load_dotenv()
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+PREVENT_ROUNDING = True
 
-TRIPLET_PROMPT = """
+TRIPLET_PROMPT = f"""
 You are to help training of a rereanker model.
 For this, we need triplets of sentences: one refereence sentence referring to a number but int he qualitative form, then a pir of sentences that are either close or very far from the reference sentence.
 
@@ -29,6 +30,7 @@ far: "Net revenue including expenses was 152 thousand dollars"
 A current painpoint of rerankers is that they encode by tokens, so "-100" and "100" are closer for them than "100" and "153", you should make triplets that play on this.
 Make it diverse: topic could be enterprise, government spending, children's plays, whatever.
 Instead of always using generic elements like "The" as the first word, use made-up proper names, it should look like a real sentence.
+{"Do not round your numbers too much with zeros, rather make it 31,304 than 31,000." if PREVENT_ROUNDING else ""}
 Make 10 of these triplets.
 
 Now go on! Generate this in the shape of a JSON object with the following fields:
