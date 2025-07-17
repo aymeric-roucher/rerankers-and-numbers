@@ -4,6 +4,7 @@ import time
 
 from dotenv import load_dotenv
 from openai import OpenAI
+from pydantic import BaseModel, Field
 from tqdm import tqdm
 
 load_dotenv()
@@ -41,8 +42,6 @@ Now go on! Generate this in the shape of a JSON object with the following fields
 - close: the close sentence
 - far: the far sentence
 """
-
-from pydantic import BaseModel, Field
 
 
 class Triplet(BaseModel):

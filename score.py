@@ -126,6 +126,7 @@ if __name__ == "__main__":
         columns=["Score", "Lab"],
     )
     print(scores_dataframe)
+    # RUN ON triplets.jsonl
     #                                         Score            Lab
     # Zerank-1-small-local                52.991453    ZeroEntropy
     # Qwen3-reranker-0.6B                 56.410256           Qwen
@@ -137,7 +138,7 @@ if __name__ == "__main__":
     # BGE-reranker-v2-m3                  82.905983           BAAI
     # GTE-reranker-modernbert-base        84.615385        Alibaba
 
-    # Another run with more_triplets.jsonl
+    # ANOTHER RUN WITH more_triplets.jsonl
     #                                         Score            Lab
     # Zerank-1-small                      36.363636    ZeroEntropy
     # Zerank-1                            60.000000    ZeroEntropy
