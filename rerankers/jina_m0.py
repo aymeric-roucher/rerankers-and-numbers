@@ -7,7 +7,7 @@ model_m0 = AutoModel.from_pretrained(
     trust_remote_code=True,
 )
 
-model_m0.to("mps")
+model_m0.to("cpu")
 model_m0.eval()
 
 

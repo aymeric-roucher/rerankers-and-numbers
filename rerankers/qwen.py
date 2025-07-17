@@ -49,7 +49,7 @@ tokenizer = AutoTokenizer.from_pretrained(
     "Qwen/Qwen3-Reranker-0.6B", padding_side="left"
 )
 model = (
-    AutoModelForCausalLM.from_pretrained("Qwen/Qwen3-Reranker-0.6B").to("mps").eval()
+    AutoModelForCausalLM.from_pretrained("Qwen/Qwen3-Reranker-0.6B").to("cpu").eval()
 )
 
 token_false_id = tokenizer.convert_tokens_to_ids("no")
