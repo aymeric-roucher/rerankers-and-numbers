@@ -1,4 +1,4 @@
-It's 2025, and rerankers still really struggle with numbers!
+Come on rerankers, it's 2025 now, we have AGI, it's time to stop struggling with basic numbers!
 
 On a first view, the human baseline for the benchmark below should be 98%, it's really simple. And yet no reranker can reach it.
 
