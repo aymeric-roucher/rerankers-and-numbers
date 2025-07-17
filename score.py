@@ -19,7 +19,7 @@ OUTPUT_DIR = "outputs"
 
 triplets = [json.loads(line) for line in open("triplets.jsonl")]
 
-REMOVE_EASY_TRIPLETS = False
+CREATE_FILTERED_OUT_DATASET = False
 PLOT = False
 
 
@@ -94,8 +94,8 @@ if __name__ == "__main__":
         },
     )
 
-    if REMOVE_EASY_TRIPLETS:
-        # You can remove triplets where all models succeed to make the dataset harder
+    if CREATE_FILTERED_OUT_DATASET:
+        # You can remove triplets where all models succeed to make a harder, filtered dataset
         mean_scores = raw_scores_dataframe.mean(axis=1)
         assert len(mean_scores) == len(triplets)
 
@@ -136,6 +136,16 @@ if __name__ == "__main__":
     # Jina-reranker-v2-base-multilingual  80.341880        Jina AI
     # BGE-reranker-v2-m3                  82.905983           BAAI
     # GTE-reranker-modernbert-base        84.615385        Alibaba
+
+    # Another run with more_triplets.jsonl
+    #                                         Score            Lab
+    # Zerank-1-small                      36.363636    ZeroEntropy
+    # Zerank-1                            60.000000    ZeroEntropy
+    # Jina-reranker-v2-base-multilingual  87.272727        Jina AI
+    # Qwen3-reranker-0.6B                 65.454545           Qwen
+    # BGE-reranker-v2-m3                  81.818182           BAAI
+    # GTE-reranker-modernbert-base        82.727273        Alibaba
+    # Mxbai-rerank-large-v2               85.454545  Mixedbread AI
 
     # -------- Plotting section --------
     if PLOT:
